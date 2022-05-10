@@ -1,9 +1,10 @@
+const { insertProduct } = require("../controllers/products.controller");
 
 const productsRouter = require("express").Router();
 
 
 
-productsRouter.get("/test", (request, response) => response.send("OPA"))
+productsRouter.post("/insert", insertProduct);
 
 
 

@@ -14,6 +14,9 @@ app.use(express.json());
 //ROUTES
 app.use("/users", userRouter);
 app.use("/products", verifyJWT, productsRouter);
+app.use("*", (request, response) => {
+    response.status(500).json({error:true, message:"Rota inexistente"});
+})
 
 module.exports = {
     app: app

@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-module.exports.verifyJWT = (request, response) => {
+module.exports.verifyJWT = (request, response, next) => {
     try{
         const token = request.header("authorization");
         if(!token) return response.status(404).json({auth: false});
